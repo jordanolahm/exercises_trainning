@@ -5,35 +5,36 @@ public class LongestSubstring {
     public static void main(String[] args) {
         String input = "abcabcbb";
 
-        // Chama o método para encontrar a maior substring sem caracteres repetidos
+        // Call method to find largest substring without repeat char
         String longestSubstring = findLongestSubstring(input);
 
-        // Exibe o resultado
+        // Show results
         System.out.println("A maior substring sem caracteres repetidos é: " + longestSubstring);
     }
 
-    // Método que encontra a maior substring sem caracteres repetidos
+    // Method to find largest substring without repeat char
     public static String findLongestSubstring(String s) {
         HashMap<Character, Integer> charIndexMap = new HashMap<>();
-        int maxLength = 0; // Tamanho da maior substring encontrada
-        int start = 0; // Posição inicial da substring
-        String longestSubstring = ""; // Armazena a maior substring
+        int maxLength = 0;
+        int start = 0;
+        String longestSubstring = "";
 
         for (int i = 0; i < s.length(); i++) {
             char currentChar = s.charAt(i);
 
-            // Se o caractere já foi visto, atualiza a posição inicial da substring
+            // if char was viewed, update the current position in substring
             if (charIndexMap.containsKey(currentChar)) {
-                // Atualiza a posição inicial se necessário
+                // update the initial position when necessary
                 start = Math.max(start, charIndexMap.get(currentChar) + 1);
             }
 
-            // Armazena ou atualiza a posição do caractere no mapa
+            // organize and update the position of char in map
             charIndexMap.put(currentChar, i);
 
-            // Calcula o tamanho da substring atual
+            // Calculate the width in current substring
             int currentLength = i - start + 1;
-            // Atualiza a maior substring se necessário
+
+            // update largest substring
             if (currentLength > maxLength) {
                 maxLength = currentLength;
                 longestSubstring = s.substring(start, i + 1);

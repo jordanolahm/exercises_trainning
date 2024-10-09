@@ -6,10 +6,10 @@ public class TwoSum {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        // Chama o método para encontrar os índices
+        // call method to find indexes
         int[] result = findTwoSum(nums, target);
 
-        // Exibe o resultado
+        // Show result
         if (result != null) {
             System.out.println("Os índices dos números que somam " + target + " são: [" + result[0] + ", " + result[1] + "]");
         } else {
@@ -17,19 +17,19 @@ public class TwoSum {
         }
     }
 
-    // Método que encontra os índices dos dois números que somam o alvo
+    // Method to find index of booth elements that plus result
     public static int[] findTwoSum(int[] nums, int target) {
         HashMap<Integer, Integer> numMap = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i]; // Calcula a diferença necessária
+            int complement = target - nums[i]; // Calculate diff between
 
-            // Verifica se a diferença já está no mapa
+            // Verify if the diff already exist in map
             if (numMap.containsKey(complement)) {
-                return new int[] { numMap.get(complement), i }; // Retorna os índices
+                return new int[] { numMap.get(complement), i }; // Return indexes
             }
 
-            // Adiciona o número atual e seu índice ao mapa
+            // Adding current number and index in map
             numMap.put(nums[i], i);
         }
 

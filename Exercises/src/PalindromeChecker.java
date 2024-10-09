@@ -6,50 +6,51 @@ public class PalindromeChecker {
         String testString3 = "No 'x' in Nixon";
         String testString4 = "Not a palindrome";
 
-        // Teste das strings
+        // Suits Tests
         System.out.println("\"" + testString1 + "\" is palindrome: " + isPalindrome(testString1));
         System.out.println("\"" + testString2 + "\" is palindrome: " + isPalindrome(testString2));
         System.out.println("\"" + testString3 + "\" is palindrome: " + isPalindrome(testString3));
         System.out.println("\"" + testString4 + "\" is palindrome: " + isPalindrome(testString4));
     }
 
-    // Método que verifica se a string é um palíndromo
+    // Method to verify if string is palindrome
     public static boolean isPalindrome(String str) {
         int left = 0;
-        int right = str.length() - 1; // Ponteiro para o final da string
+        int right = str.length() - 1; // Pointer to final string
 
         while (left < right) {
-            // Ignora caracteres não alfanuméricos à esquerda
+            // Ignores non-alphanumeric characters on the left
             while (left < right && !isAlphanumeric(str.charAt(left))) {
                 left++;
             }
-            // Ignora caracteres não alfanuméricos à direita
+            // Ignores non-alphanumeric characters on the right
             while (left < right && !isAlphanumeric(str.charAt(right))) {
                 right--;
             }
-            // Compara os caracteres
+            // compare characters
             if (Character.toLowerCase(str.charAt(left)) != Character.toLowerCase(str.charAt(right))) {
-                return false; // Não é um palíndromo
+                return false;
             }
             left++;
             right--;
         }
-        return true; // É um palíndromo
+        return true;
     }
 
-    // Método auxiliar para verificar se um caractere é alfanumérico
+    // Auxiliar method to verify alphanumeric characters
     private static boolean isAlphanumeric(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
     }
 
+    // utilitary method
     public static boolean isPalindromeAuxiliary(String str) {
-        // Remove espaços e caracteres especiais e converte para minúsculas
+        // Remove spaces and special characters and convert to lowercase
         String cleanedStr = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        // Inverte a string limpa
+        // Inverse string
         String reversedStr = new StringBuilder(cleanedStr).reverse().toString();
 
-        // Compara a string limpa com a versão invertida
+        // Compare both strings
         return cleanedStr.equals(reversedStr);
     }
 }

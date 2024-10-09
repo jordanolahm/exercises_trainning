@@ -2,14 +2,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-*  - cria uma lista para receber a string.
-*  - Varre a lista, para contabilizar as palavras.
-*  - Usa um HashMap (chave e valor)
-*  -  Define uma funcao que retona o map e recebe o texto de entrada.
-*  -  Split das palavras do texto recebidos em palavras.
-*  -  Adiciona isso num vetor de palavras
-*  - varre o velor de palavras, onde cada elemento é uma palavra
-* */
+ * - creates a list to receive the string.
+ * - Scans the list to count the words.
+ * - Uses a HashMap (key and value)
+ * - Define a function that returns the map and receives the input text.
+ * Split the received text into words.
+ * - Add this to a vector of words
+ * - Scans the word vector, where each element is a word
+ */
 
 
 public class WordCounter {
@@ -17,16 +17,16 @@ public class WordCounter {
     public static void main(String[] args) {
         String text = "This is a sample text this text is a sample text";
 
-        // Chama o método para contar as palavras
+        // Call method counter of words
         Map<String, Integer> wordCountMap = countWordOccurrences(text);
 
-        // Exibe o resultado
+        // Show result
         for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 
-    // Método que conta as ocorrências de palavras
+    // Method that counts word occurrences
     public static Map<String, Integer> countWordOccurrences(String text) {
         Map<String, Integer> wordCountMap = new HashMap<>();
         String[] words = text.toLowerCase().split("\\s+");

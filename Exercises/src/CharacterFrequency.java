@@ -5,26 +5,26 @@ public class CharacterFrequency {
     public static void main(String[] args) {
         String input = "hello world";
 
-        // Chama o método para contar a frequência de caracteres
+        // Call method to count often caracteres in map
         HashMap<Character, Integer> frequencyMap = countCharacterFrequency(input);
 
-        // Exibe o resultado
+        // show results
         System.out.println("Frequência de caracteres:");
         for (HashMap.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 
-    // Método que conta a frequência de caracteres em uma string
+    // Method to count often of element in string
     public static HashMap<Character, Integer> countCharacterFrequency(String str) {
         HashMap<Character, Integer> charFrequency = new HashMap<>();
 
         for (char c : str.toCharArray()) {
-            // Se o caractere já está no mapa, incrementa o contador
+            //verify if map contains the char, increments the counter
             if (charFrequency.containsKey(c)) {
                 charFrequency.put(c, charFrequency.get(c) + 1);
             } else {
-                // Caso contrário, adiciona o caractere ao mapa com frequência 1
+                // in other hand, adding char in map with once frequency
                 charFrequency.put(c, 1);
             }
         }

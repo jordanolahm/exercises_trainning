@@ -15,15 +15,15 @@ public class RemoveDuplicates {
         numbers.add(5);
         numbers.add(3);
 
-        // Remove duplicatas
+        // Remove duplicates
         List<Integer> uniqueNumbers = removeDuplicates(numbers);
 
-        // Exibe o resultado
+        // Show result
         System.out.println("Lista original: " + numbers);
         System.out.println("Lista sem duplicatas: " + uniqueNumbers);
     }
 
-    // Método que remove duplicatas de uma lista
+     // Call method to remove duplicate elements in list
     public static List<Integer> removeDuplicates(List<Integer> list) {
         HashSet<Integer> seen = new HashSet<>();
         List<Integer> result = new ArrayList<>();
