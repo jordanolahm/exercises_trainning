@@ -6,34 +6,33 @@ import java.util.ArrayList;
 
 
 public class Anagramas {
-    // Método principal
     public static void main(String[] args) {
         List<String> words = Arrays.asList("listen", "silent", "enlist", "rat", "tar", "art", "evil", "vile", "live");
 
-        // Chama o método para agrupar anagramas
+        // Organize anagrams
         Map<String, List<String>> groupedAnagrams = groupAnagrams(words);
 
-        // Exibe o resultado
+        // Show results
         for (Map.Entry<String, List<String>> entry : groupedAnagrams.entrySet()) {
             System.out.println(entry.getValue());
         }
     }
 
-    // Método que agrupa anagramas
+    // Method to group Anagrams
     public static Map<String, List<String>> groupAnagrams(List<String> words) {
-        // Cria um HashMap para armazenar os anagramas agrupados
+        // Create a HashMap to store the grouped anagrams
         Map<String, List<String>> anagramMap = new HashMap<>();
 
-        // Itera sobre cada palavra na lista
+        // Iteration each word in list words
         for (String word : words) {
-            // Converte a palavra para um array de caracteres e ordena o array
+            // convert word to array of char and sorts the array
             char[] charArray = word.toCharArray();
             Arrays.sort(charArray);
 
-            // Converte o array de caracteres ordenado de volta para uma string
+            //Convert the array of char in string
             String sortedWord = new String(charArray);
 
-            // Se a chave (versão ordenada) já existir no mapa, adiciona a palavra à lista
+            // verify this key already exist in map,  adding the word in list of words
             if (!anagramMap.containsKey(sortedWord)) {
                 anagramMap.put(sortedWord, new ArrayList<>());
             }
